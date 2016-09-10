@@ -47,5 +47,17 @@ namespace SpottedAdminConsole.Controllers
 
             return View(missingPerson);
         }
+
+        [Route("api/[controller]/ReportList/{id}")]
+        public IEnumerable<MissingPersonReport> ReportList(string id)
+        {
+            return _context.MissingPersonReport.Where(x => x.Id.ToUpper().Equals(id.ToUpper()));
+        }
+
+        [Route("api/[controller]/Search/{id}")]
+        public IEnumerable<MissingPerson> Search(string id)
+        {
+            return _context.MissingPersons.Where(x => x.Id.ToUpper().Contains(id.ToUpper()) || x.Date.ToString().ToUpper().Contains(id.ToUpper()) || x.Description.ToUpper().Contains(x.Id.ToUpper()) || x.Name.ToUpper().Contains(x.Id.ToUpper()));   
+        }
     }
 }
