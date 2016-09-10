@@ -34,7 +34,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:background="@color/colorPrimary"
-            android:src="@drawable/irodotou" />
+           />
 
         <RelativeLayout
             android:layout_width="match_parent"

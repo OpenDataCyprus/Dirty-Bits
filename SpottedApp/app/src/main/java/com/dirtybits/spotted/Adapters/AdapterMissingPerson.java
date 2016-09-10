@@ -2,6 +2,10 @@ package com.dirtybits.spotted.Adapters;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,7 +40,9 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
         missingPerson.setTimesSpotted(2);
         missingPerson.setType(Type.MissingPerson);
         missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
-       // missingPerson.setPhotographString(context.getResources().getDrawable(R.drawable.no_photo_available));
+        Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
+                R.drawable.pelopidas);
+        missingPerson.setPhotograph(icon);
        missingPerson.setMissingDate("10/10/2014");
         personsList = new ArrayList<>();
         personsList.add(missingPerson);
@@ -46,7 +52,8 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
         missingPerson.setType(Type.MissingPerson);
         missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
         missingPerson.setMissingDate("10/12/2015");
-      //  missingPerson.setPhotographString(context.getResources().getDrawable(R.drawable.no_photo_available));
+         icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.konstantinou);
+        missingPerson.setPhotograph(icon);
         personsList.add(missingPerson);
     }
 
@@ -64,10 +71,9 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
             holder.textviewName.setText(personsList.get(position).getFullName());
             holder.textviewDate.setText(personsList.get(position).getMissingDate());
             holder.textviewSpottedTime.setText(Integer.toString(personsList.get(position).getTimesSpotted()));
-          //  holder.imageButtonPicture.setImageDrawable(personsList.get(position).getPhotographString());
+            Drawable drawable = new BitmapDrawable(_context.getResources(), personsList.get(position).getPhotograph());
+            holder.imageButtonPicture.setImageDrawable(drawable);
             holder.reportButton.setTag(position);
-            //  Picasso.with(_context).load(personsList.get(position).getPhotographString().).into( holder.imageButtonPicture);
-            //  holder.imageButton.setTag(position);
         }
     }
 
