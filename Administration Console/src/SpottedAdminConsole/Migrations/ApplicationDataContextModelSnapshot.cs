@@ -36,6 +36,30 @@ namespace SpottedAdminConsole.Migrations
                     b.ToTable("MissingPersons");
                 });
 
+            modelBuilder.Entity("SpottedAdminConsole.Models.MissingPersonReport", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<DateTime>("DateOfReport");
+
+                    b.Property<string>("Description")
+                        .HasAnnotation("MaxLength", 2048);
+
+                    b.Property<float>("Latitude");
+
+                    b.Property<float>("Longitude");
+
+                    b.Property<string>("MissingPersonId");
+
+                    b.Property<string>("Photo");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MissingPersonId");
+
+                    b.ToTable("MissingPersonReport");
+                });
+
             modelBuilder.Entity("SpottedAdminConsole.Models.StolenCar", b =>
                 {
                     b.Property<string>("Id");
@@ -57,6 +81,30 @@ namespace SpottedAdminConsole.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StolenCars");
+                });
+
+            modelBuilder.Entity("SpottedAdminConsole.Models.StolenPlateReport", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<DateTime>("DateOfReport");
+
+                    b.Property<string>("Description")
+                        .HasAnnotation("MaxLength", 2048);
+
+                    b.Property<float>("Latitude");
+
+                    b.Property<float>("Longitude");
+
+                    b.Property<string>("Photo");
+
+                    b.Property<string>("StolenPlateId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StolenPlateId");
+
+                    b.ToTable("StolenPlateReport");
                 });
 
             modelBuilder.Entity("SpottedAdminConsole.Models.StolenPlates", b =>
@@ -82,6 +130,30 @@ namespace SpottedAdminConsole.Migrations
                     b.ToTable("StolenPlates");
                 });
 
+            modelBuilder.Entity("SpottedAdminConsole.Models.StolenVehicleReport", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<DateTime>("DateOfReport");
+
+                    b.Property<string>("Description")
+                        .HasAnnotation("MaxLength", 2048);
+
+                    b.Property<float>("Latitude");
+
+                    b.Property<float>("Longitude");
+
+                    b.Property<string>("Photo");
+
+                    b.Property<string>("StolenCarId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StolenCarId");
+
+                    b.ToTable("StolenVehicleReport");
+                });
+
             modelBuilder.Entity("SpottedAdminConsole.Models.WantedPerson", b =>
                 {
                     b.Property<string>("Id");
@@ -100,6 +172,58 @@ namespace SpottedAdminConsole.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WantedPersons");
+                });
+
+            modelBuilder.Entity("SpottedAdminConsole.Models.WantedPersonReport", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<DateTime>("DateOfReport");
+
+                    b.Property<string>("Description")
+                        .HasAnnotation("MaxLength", 2048);
+
+                    b.Property<float>("Latitude");
+
+                    b.Property<float>("Longitude");
+
+                    b.Property<string>("Photo");
+
+                    b.Property<string>("WantedPersonId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WantedPersonId");
+
+                    b.ToTable("WantedPersonReport");
+                });
+
+            modelBuilder.Entity("SpottedAdminConsole.Models.MissingPersonReport", b =>
+                {
+                    b.HasOne("SpottedAdminConsole.Models.MissingPerson", "MissingPerson")
+                        .WithMany()
+                        .HasForeignKey("MissingPersonId");
+                });
+
+            modelBuilder.Entity("SpottedAdminConsole.Models.StolenPlateReport", b =>
+                {
+                    b.HasOne("SpottedAdminConsole.Models.StolenPlates", "StolenPlate")
+                        .WithMany()
+                        .HasForeignKey("StolenPlateId");
+                });
+
+            modelBuilder.Entity("SpottedAdminConsole.Models.StolenVehicleReport", b =>
+                {
+                    b.HasOne("SpottedAdminConsole.Models.StolenCar", "StolenCar")
+                        .WithMany()
+                        .HasForeignKey("StolenCarId");
+                });
+
+            modelBuilder.Entity("SpottedAdminConsole.Models.WantedPersonReport", b =>
+                {
+                    b.HasOne("SpottedAdminConsole.Models.WantedPerson", "WantedPerson")
+                        .WithMany()
+                        .HasForeignKey("WantedPersonId");
                 });
         }
     }
