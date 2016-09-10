@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SpottedAdminConsole.Models.WantedPerson>
+
+@{
+    ViewBag.Title = "Wanted Persons";
+}
+
+<h2>Wanted Persons</h2>
+
+
+<a asp-controller="WantedPersons" asp-action="Create">Create New</a>
+
+
+<table class="table">
+    <tr>
+       <th>Name</th>
+       <th>Date</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+    }
+</table>
+
