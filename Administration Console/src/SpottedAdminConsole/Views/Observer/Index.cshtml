@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet"href="~/css/observer.css" />
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/js/observer.js"></script>
-
+    <script type="text/javascript" src="~/js/map.js"></script>
     <!--<link type="text/css" rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     
@@ -22,7 +22,10 @@
 
         </div>
         <div class="panel-content">
-                     a
+            <button id="ButtonWantedPersons">Wanted</button>
+            <button id="ButtonMissingPersons">Missing</button>
+            <button id="ButtonStolenVehicles">Stolen Vehicles</button>
+            <button id="ButtonStolenPlates">Stolen Plates</button>
         </div>
     </div>
     <div id="DataPanel" class="panel">
@@ -30,16 +33,17 @@
 
         </div>
         <div class="panel-content">
-                         a
+
         </div>
     </div>
     <div id="MapPanel" class="panel">
         <div class="panel-header">
 
         </div>
-        <div class="panel-content">
-                            a
+        <div class="panel-content map">
+
         </div>
     </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiIA3oTJkk4GmB26i2obfxEMP7KDPOnUA&callback=initializeMaps"></script>
 </body>
 </html>
