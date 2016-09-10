@@ -39,7 +39,11 @@
             android:name=".Activities.MissingCars"
             android:label="Missing cars"
             android:parentActivityName=".MainActivityWithoutDrawer" />
-        <activity android:name=".Activities.MissingPersonInfo" />
+
+        <activity android:name=".Activities.MissingPersonInfo"
+            android:label="Missing person"
+            android:parentActivityName=".MainActivityWithoutDrawer"/>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -60,5 +64,4 @@
             android:parentActivityName=".Activities.MissingPersonInfo"
             android:label="@string/title_activity_sightings_maps"></activity>
     </application>
-
 </manifest>
