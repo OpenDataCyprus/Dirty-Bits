@@ -100,7 +100,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:background="@null"
-            android:src="@drawable/ic_map_black_30dp" />
+            android:src="@drawable/ic_map_black_30dp"
+            android:onClick="showSightingsMap"/>
 
         <TextView
             android:id="@+id/textView2"
