@@ -39,7 +39,7 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
         missingPerson.setFullName("Eduard Bagdoyan");
         missingPerson.setTimesSpotted(2);
         missingPerson.setType(Type.MissingPerson);
-        missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
+        missingPerson.setDescription("Eduard Bagdoyan, 58χρόνων, από τη Γεωργία, ελλείπει από το χώρο διαμονής του στη Λευκωσία από την 1η Μαρτίου, 2012. Ο Bagdoyan περιγράφεται ως ύψους 1.70μ. μέτριας σωματικής διάπλασης, με γκρίζα μαλιά και καστανά μάτια και κατά την τελευταία φορά που θεάθηκε φορούσε παντελόνι τζιν και μπεζ ζακέτα. Παρακαλείται, οποιοσδήποτε γνωρίζει οτιδήποτε που θα μπορούσε να βοηθήσει στον εντοπισμό του να επικοινωνήσει με το ΤΑΕ Λευκωσίας ή με τον πλησιέστερο Αστυνομικό Σταθμό ή με τη γραμμή επικοινωνίας του πολίτη στον αριθμό 1460");
         Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
                 R.drawable.pelopidas);
         missingPerson.setPhotograph(icon);
