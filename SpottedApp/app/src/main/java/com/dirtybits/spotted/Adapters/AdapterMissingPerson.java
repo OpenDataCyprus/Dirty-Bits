@@ -71,6 +71,29 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
         icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.miltiadous);
         missingPerson.setPhotograph(icon);
         personsList.add(missingPerson);
+
+        missingPerson = new MissingPerson(Parcel.obtain());
+        missingPerson.setFullName("ΠΑΝΑΓΙΩΤΗΣ ΛΥΣΙΩΤΗΣ");
+        missingPerson.setTimesSpotted(3);
+        missingPerson.setType(Type.MissingPerson);
+        missingPerson.setDescription("Ο Παναγιώτης ΛΥΣΙΩΤΗΣ από τη Λ/κα, 44 χρόνων, , νυμφευμένος στην Ελλάδα, λείπει από τον Οκτώβριο 2000. " +
+                                     "Είναι μέτριας σωματικής διάπλασης, ύψους 1.80 μ., με γκριζόμαυρα μαλλιά και καστανά μάτια.Το ΤΑΕ Αμ/στου εξετάζει.");
+        missingPerson.setMissingDate("2000-10-01");
+        icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.lisiotis);
+        missingPerson.setPhotograph(icon);
+        personsList.add(missingPerson);
+
+        missingPerson = new MissingPerson(Parcel.obtain());
+        missingPerson.setFullName("ΣΑΒΒΑΣ ΣΑΒΒΑΣ");
+        missingPerson.setTimesSpotted(34);
+        missingPerson.setType(Type.MissingPerson);
+        missingPerson.setDescription("Ο Σάββας ΣΑΒΒΑ από τον Αγ. Αθανάσιο Λ/σού, 33 χρόνων λείπει από την κατοικία του στην Λεμεσό, από τις 5.1.04. " +
+                                     "Είναι κανονικής σωματικής διάπλασης, ύψους 1.70 μ., χρώματος καστανού, ψιλοκουρεμένος. Φορούσε μαύρο παντελόνι και σακάκι. " +
+                                     "Το ΤΑΕ Λ/σού εξετάζει.");
+        missingPerson.setMissingDate("2004-01-05");
+        icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.savvas);
+        missingPerson.setPhotograph(icon);
+        personsList.add(missingPerson);
     }
 
     @Override
