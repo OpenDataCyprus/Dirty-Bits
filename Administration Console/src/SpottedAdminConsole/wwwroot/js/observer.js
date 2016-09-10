@@ -1,7 +1,7 @@
 ﻿(function ($) {
 
-    var CATEGORY_PANEL_WIDTH = 72;
-    var DATA_PANEL_WIDTH = 288;
+    var CATEGORY_PANEL_WIDTH = 80;
+    var DATA_PANEL_WIDTH = 302;
     var CONTROLS_BAR_HEIGHT = 64;
 
     var windowHeight = 0;
@@ -24,7 +24,7 @@
 
     function clearUI()
     {
-
+        $(".panel-content", "#DataPanel").children().remove();
     }
 
     function loadMissingPersons()
@@ -41,7 +41,7 @@
                 else
                     $("<img />").attr("src", "").css({ float: "left" }).width(48).height(48).appendTo(itemUI);
 
-                var content = $("<div />").css({ margin: "0 0 0 32" }).appendTo(itemUI);
+                var content = $("<div />").addClass("content").appendTo(itemUI);
 
                 content.append($("<div />").addClass("title").html(item.name));
 
@@ -51,12 +51,74 @@
         });
     }
 
+    function loadWantedPersons() {
+        clearUI();
+
+        $.get("/WantedPersons/List", function (response) {
+            $.each(response, function (index, item) {
+
+                var itemUI = $("<div />").addClass("data-listing").height(48);
+
+                if (item.picture != null)
+                    $("<img />").attr("src", "/images/data/wanted/" + item.picture).css({ float: "left" }).width(48).height(48).appendTo(itemUI);
+                else
+                    $("<img />").attr("src", "").css({ float: "left" }).width(48).height(48).appendTo(itemUI);
+
+                var content = $("<div />").addClass("content").appendTo(itemUI);
+
+                content.append($("<div />").addClass("title").html(item.name));
+
+                $(".panel-content", "#DataPanel").append(itemUI);
+
+            });
+        });
+    }
+
+    function loadStolenVehicles()
+    {
+        clearUI();
+
+        $.get("/StolenVehicles/List", function (response) {
+            $.each(response, function (index, item) {
+
+                var itemUI = $("<div />").addClass("data-listing").height(48);
+
+                var content = $("<div />").addClass("content").appendTo(itemUI);
+
+                content.append($("<div />").addClass("title").html(item.plateNumber));
+
+                $(".panel-content", "#DataPanel").append(itemUI);
+
+            });
+        });
+    }
+
+    function loadStolenPlates()
+    {
+        clearUI();
+
+        $.get("/StolenPlates/List", function (response) {
+            $.each(response, function (index, item) {
+
+                var itemUI = $("<div />").addClass("data-listing").height(48);
+
+                var content = $("<div />").addClass("content").appendTo(itemUI);
+
+                content.append($("<div />").addClass("title").html(item.plateNumber));
+
+                $(".panel-content", "#DataPanel").append(itemUI);
+
+            });
+        });
+    }
 
     $(document).ready(function () {
         refreshUI();
 
         $("#ButtonWantedPersons").on("click", function () {
             $(this).addClass("active").parent().children().not(this).removeClass("active");
+
+            loadWantedPersons();
         });
 
         $("#ButtonMissingPersons").on("click", function () {
@@ -68,11 +130,13 @@
         $("#ButtonStolenVehicles").on("click", function () {
             $(this).addClass("active").parent().children().not(this).removeClass("active");
 
+            loadStolenVehicles();
         });
 
         $("#ButtonStolenPlates").on("click", function () {
             $(this).addClass("active").parent().children().not(this).removeClass("active");
 
+            loadStolenPlates();
         });
 
     }).on("click", ".data-listing", function () {
