@@ -2,6 +2,7 @@ package com.dirtybits.spotted.ViewHolders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -20,26 +21,14 @@ public class ViewHolderMissingPerson extends RecyclerView.ViewHolder {
     public TextView textviewDate;
     public TextView textviewSpottedTime;
     public CircleImageView imageButtonPicture;
+    public Button reportButton;
 
-    public ViewHolderMissingPerson(View itemView) {
+    public  ViewHolderMissingPerson(View itemView) {
         super(itemView);
         imageButtonPicture = (CircleImageView) itemView.findViewById(R.id.imageButtonPicture);
         textviewDate = (TextView) itemView.findViewById(R.id.textViewDate);
         textviewSpottedTime = (TextView) itemView.findViewById(R.id.textViewSpottedTimes);
         textviewName = (TextView) itemView.findViewById(R.id.textViewName);
+        reportButton = (Button) itemView.findViewById(R.id.buttonReport);
     }
-
-    public void bind(final MissingPerson item, final OnRecyclerViewItemClickListener listener) {
-
-        itemView.setOnClickListener(new View.OnClickListener() {
-
-            @Override public void onClick(View v) {
-
-                listener.onItemClick(item);
-
-            }
-
-        });
-    }
-
 }

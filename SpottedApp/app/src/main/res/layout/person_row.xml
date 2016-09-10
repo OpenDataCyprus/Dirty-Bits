@@ -55,7 +55,7 @@
             android:layout_alignStart="@+id/textViewName"
             android:layout_below="@+id/linearLayout2"
             android:text="report"
-            android:onClick="OpenPeron"/>
+            android:onClick="ReportPerson"/>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
