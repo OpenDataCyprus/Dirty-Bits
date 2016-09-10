@@ -27,17 +27,6 @@ public class ReportMap extends FragmentActivity implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
 
-        LatLng idea = new LatLng(35.17249, 33.362331999999924);
-        mMap.addMarker(new MarkerOptions().position(idea).title("IDEA Cyprus"));
-
-        LatLng gsp = new LatLng(35.1143324, 33.36151070000005);
-        mMap.addMarker(new MarkerOptions().position(gsp).title("GSP Stadium"));
-
-        LatLng faneromeniChurch = new LatLng(35.1734049, 33.36263269999995);
-        mMap.addMarker(new MarkerOptions().position(faneromeniChurch).title("Faneromeni Church"));
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(idea));
     }
 }
