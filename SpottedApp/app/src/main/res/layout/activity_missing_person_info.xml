@@ -80,7 +80,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/imageButtonMap"
             android:background="@null"
-            android:src="@drawable/ic_location_on_black_24px1" />
+            android:src="@drawable/ic_location_on_black_24px1"
+            android:onClick="showReportMap"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/imageButtonMap"
