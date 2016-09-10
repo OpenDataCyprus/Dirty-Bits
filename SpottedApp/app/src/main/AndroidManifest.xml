@@ -12,22 +12,27 @@
         <activity android:name=".MainActivityWithoutDrawer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.WantedPersons"
+        <activity
+            android:name=".Activities.WantedPersons"
             android:label="Wanted persons"
             android:parentActivityName=".MainActivityWithoutDrawer" />
-        <activity android:name=".Activities.MissingPersons"
+        <activity
+            android:name=".Activities.MissingPersons"
             android:label="Missing persons"
             android:parentActivityName=".MainActivityWithoutDrawer" />
-
-        <activity android:name=".Activities.MissingPlates"
+        <activity
+            android:name=".Activities.MissingPlates"
             android:label="Missing plates"
             android:parentActivityName=".MainActivityWithoutDrawer" />
-        <activity android:name=".Activities.MissingCars"
+        <activity
+            android:name=".Activities.MissingCars"
             android:label="Missing cars"
             android:parentActivityName=".MainActivityWithoutDrawer" />
+        <activity android:name=".Activities.MissingPersonInfo"></activity>
     </application>
 
 </manifest>

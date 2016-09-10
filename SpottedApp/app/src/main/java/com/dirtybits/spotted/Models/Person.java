@@ -2,6 +2,7 @@ package com.dirtybits.spotted.Models;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Parcel;
@@ -17,37 +18,9 @@ public class Person extends BaseObservable implements Parcelable {
     private String personId;
     private String fullName;
     private int timesSpotted;
-    private Image photograph;
+    private Bitmap photograph;
     private String description;
-    private Drawable photographString;
-
-    public Person(String fullName, String description, Image photograph, int timesSpotted) {
-        this.personId = Integer.toString(++id);
-        this.fullName = fullName;
-        this.description = description;
-        this.photograph = photograph;
-        this.timesSpotted = timesSpotted;
-
-    }
-
-    protected Person(Parcel in) {
-        personId = in.readString();
-        fullName = in.readString();
-        timesSpotted = in.readInt();
-        description = in.readString();
-    }
-
-    public static final Creator<Person> CREATOR = new Creator<Person>() {
-        @Override
-        public Person createFromParcel(Parcel in) {
-            return new Person(in);
-        }
-
-        @Override
-        public Person[] newArray(int size) {
-            return new Person[size];
-        }
-    };
+  //  private Drawable photographString;
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
@@ -73,13 +46,13 @@ public class Person extends BaseObservable implements Parcelable {
         return this.description;
     }
 
-    public void setPhotograph(Image photograph) {
+    public void setPhotograph(Bitmap photograph) {
         this.photograph = photograph;
         notifyPropertyChanged(BR.photograph);
     }
 
     @Bindable
-    public Image getPhotograph() {
+    public Bitmap getPhotograph() {
         return this.photograph;
     }
 
@@ -107,27 +80,51 @@ public class Person extends BaseObservable implements Parcelable {
         return this.personId;
     }
 
+   // @Bindable
+  //  public Drawable getPhotographString() {
+      //  return photographString;
+  //  }
+
+  //  public void setPhotographString(Drawable photographString) {
+  //      this.photographString = photographString;
+  //      notifyPropertyChanged(BR.photographString);
+  //  }
+
     @Override
     public int describeContents() {
         return 0;
     }
 
-    @Bindable
-    public Drawable getPhotographString() {
-        return photographString;
-    }
-
-    public void setPhotographString(Drawable photographString) {
-        this.photographString = photographString;
-        notifyPropertyChanged(BR.photographString);
-    }
-
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(personId);
-        dest.writeString(fullName);
-        dest.writeInt(timesSpotted);
-        dest.writeString(description);
-        dest.writeString(photographString.toString());
+        dest.writeInt(this.type == null ? -1 : this.type.ordinal());
+        dest.writeString(this.personId);
+        dest.writeString(this.fullName);
+        dest.writeInt(this.timesSpotted);
+        dest.writeParcelable(this.photograph, flags);
+        dest.writeString(this.description);
     }
+
+    public Person(Parcel in) {
+        int tmpType = in.readInt();
+        this.type = tmpType == -1 ? null : Type.values()[tmpType];
+        this.personId = in.readString();
+        this.fullName = in.readString();
+        this.timesSpotted = in.readInt();
+        this.photograph = in.readParcelable(Image.class.getClassLoader());
+        this.description = in.readString();
+      //  this.photographString = in.readParcelable(Drawable.class.getClassLoader());
+    }
+
+    public static final Creator<Person> CREATOR = new Creator<Person>() {
+        @Override
+        public Person createFromParcel(Parcel source) {
+            return new Person(source);
+        }
+
+        @Override
+        public Person[] newArray(int size) {
+            return new Person[size];
+        }
+    };
 }
