@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KUU123"
+                android:id="@+id/textViewPlate"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textSize="25dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/abc_input_method_navigation_guard" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Suzuki"
+                android:id="@+id/textViewBrand"
+                android:layout_alignTop="@+id/textViewPlate"
+                android:layout_centerHorizontal="true"
+                android:textSize="25dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/abc_input_method_navigation_guard" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Black"
+                android:id="@+id/textViewColor"
+                android:layout_alignTop="@+id/textViewBrand"
+                android:layout_toEndOf="@+id/textViewBrand"
+                android:textSize="25dp"
+                android:textColor="@color/abc_input_method_navigation_guard" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spotted"
+            android:id="@+id/Report"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_below="@+id/linearLayout4"
+            android:layout_alignParentEnd="true" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/linearLayout4"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/Report">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_event_black_32px" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/linearLayout"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:text="15/10/2001"
+                android:textColor="@color/abc_search_url_text_pressed"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_location_on_black_24px1" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autoText="true"
+                android:text="2"
+                android:textColor="@color/abc_search_url_text_pressed"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

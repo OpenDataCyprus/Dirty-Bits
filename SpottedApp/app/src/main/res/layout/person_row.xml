@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical"
+    android:showDividers="beginning|middle|end">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="118dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+
+        <me.grantland.widget.AutofitTextView
+            android:id="@+id/textViewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout2"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="2dp"
+            android:layout_toStartOf="@+id/imageButtonPicture"
+            android:maxLines="2"
+            android:singleLine="false"
+            android:text="MARIEL RANDJANY BAMUNU MUDIYANSECAGE"
+            android:textColor="@color/abc_search_url_text_pressed"
+            android:textIsSelectable="true"
+            android:textSize="15dp"
+            android:textStyle="bold">
+
+        </me.grantland.widget.AutofitTextView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageButtonPicture"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="2dp"
+            android:adjustViewBounds="false"
+            android:clickable="true"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/face" />
+
+        <Button
+            android:id="@+id/buttonReport"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textViewName"
+            android:layout_below="@+id/linearLayout2"
+            android:text="report"
+            android:onClick="OpenPeron"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageViewCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_event_black_32px" />
+
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/linearLayout"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:text="15/10/2001"
+                android:textColor="@color/abc_search_url_text_pressed"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageViewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_location_on_black_24px1" />
+
+            <TextView
+                android:id="@+id/textViewSpottedTimes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autoText="true"
+                android:text="2"
+                android:textColor="@color/abc_search_url_text_pressed"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
