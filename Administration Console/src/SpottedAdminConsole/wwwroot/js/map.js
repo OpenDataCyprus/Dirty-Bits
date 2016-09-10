@@ -53,6 +53,13 @@
         mapContainer.data("markers", markers);
     }
 
+    function setLocation(mapContainer, report)
+    {
+        var map = mapContainer.data("map");
+
+        map.setCenter(new google.maps.LatLng(report.latitude, report.longitude), map.getZoom());
+    }
+
     $.fn.map = function (params, option, value) {
 
         if (typeof (params) === "string")
@@ -62,11 +69,16 @@
             if (params === "addMarker")
             {
                 addMarker(self, option);
+
+                setLocation(self, option);
             }
             else if (params === "addMarkers") {
                 $.each(option, function(index, marker) {
                     addMarker(self, marker);
                 });
+
+                if (option.length > 0)
+                    setLocation(self, option[0]);
             }
             else if (params === "clearMarkers")
             {
