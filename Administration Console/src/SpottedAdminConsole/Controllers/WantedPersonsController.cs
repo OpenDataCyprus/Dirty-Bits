@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Models;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -13,6 +14,32 @@
         {
             _context = context;
         }
+        public IActionResult Index()
+        {
+            return View(_context.WantedPersons.ToList());
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(WantedPerson wantedPerson)
+        {
+            if (ModelState.IsValid)
+            {
+                wantedPerson.Id = Guid.NewGuid().ToString();
+                _context.WantedPersons.Add(wantedPerson);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(wantedPerson);
+        }
+
 
         [HttpGet]
         public IEnumerable<WantedPerson> List()
