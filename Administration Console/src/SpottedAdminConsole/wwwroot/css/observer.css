@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: sans-serif;
 }
 
 .panel {
@@ -12,6 +13,16 @@
 {
     background: #ddeefb;
 }
+
+#CategoryPanel button { border: none; background: transparent; width:64px; height:64px; margin:4px; }
+#CategoryPanel #ButtonWantedPersons { background-image: url(../images/command-buttons/WantedPersons.png); }
+#CategoryPanel #ButtonWantedPersons.active { background-image: url(../images/command-buttons/WantedPersonsH.png); }
+#CategoryPanel #ButtonMissingPersons { background-image: url(../images/command-buttons/MissingPersons.png); }
+#CategoryPanel #ButtonMissingPersons.active { background-image: url(../images/command-buttons/MissingPersonsH.png); }
+#CategoryPanel #ButtonStolenVehicles { background-image: url(../images/command-buttons/StolenVehicles.png); }
+#CategoryPanel #ButtonStolenVehicles.active { background-image: url(../images/command-buttons/StolenVehiclesH.png); }
+#CategoryPanel #ButtonStolenPlates { background-image: url(../images/command-buttons/StolenPlates.png); }
+#CategoryPanel #ButtonStolenPlates.active { background-image: url(../images/command-buttons/StolenPlatesH.png); }
 
 #DataPanel {
     background: #f9f9f9;
@@ -28,4 +39,29 @@
 
 #MapPanel .panel-header {
     background: #fafafa;
+}
+
+.panel-content {
+    overflow-x: hidden;
+    overflow-y:auto;
+}
+
+.data-listing {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 4px;
+}
+
+.data-listing.active {
+    background: #2b91e3;
+    border-bottom: 1px solid #2b91e3;
+    color: #ffffff;
+
+}
+
+.data-listing .title {
+    font-weight:bold;
+}
+
+.wanted-person {
+    
 }

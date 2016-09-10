@@ -2,6 +2,7 @@ package com.dirtybits.spotted.Activities;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.dirtybits.spotted.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -11,7 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class SightingsMaps extends FragmentActivity implements OnMapReadyCallback {
+public class SightingsMaps extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -39,5 +40,6 @@ public class SightingsMaps extends FragmentActivity implements OnMapReadyCallbac
         mMap.addMarker(new MarkerOptions().position(faneromeniChurch).title("Faneromeni Church"));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(idea));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(35.17249, 33.362331999999924), 15), 4000, null);
     }
 }

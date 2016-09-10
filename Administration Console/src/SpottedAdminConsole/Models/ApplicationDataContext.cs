@@ -23,7 +23,6 @@
         public DbSet<StolenVehicleReport> StolenVehicleReport { get; set; }
 
         public DbSet<StolenPlateReport> StolenPlateReport { get; set; }
-
     }
 
 }

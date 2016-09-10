@@ -14,7 +14,6 @@ namespace SpottedAdminConsole.Models
 
         public DateTime DateOfReport { get; set; }
 
-        public string Photo { get; set; }
-     
+        public string Photo { get; set; }     
     }
 }
