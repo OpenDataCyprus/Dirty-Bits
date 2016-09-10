@@ -1,7 +1,7 @@
 ﻿(function ($) {
 
-    var CATEGORY_PANEL_WIDTH = 64;
-    var DATA_PANEL_WIDTH = 256;
+    var CATEGORY_PANEL_WIDTH = 72;
+    var DATA_PANEL_WIDTH = 288;
     var CONTROLS_BAR_HEIGHT = 64;
 
     var windowHeight = 0;
@@ -27,18 +27,27 @@
 
     }
 
-
     function loadMissingPersons()
     {
         clearUI();
 
         $.get("/MissingPersons/List", function (response) {
-
             $.each(response, function (index, item) {
 
+                var itemUI = $("<div />").addClass("data-listing").height(48);
+
+                if (item.picture != null)
+                    $("<img />").attr("src", "/images/data/missing/" + item.picture).css({float:"left"}).width(48).height(48).appendTo(itemUI);
+                else
+                    $("<img />").attr("src", "").css({ float: "left" }).width(48).height(48).appendTo(itemUI);
+
+                var content = $("<div />").css({ margin: "0 0 0 32" }).appendTo(itemUI);
+
+                content.append($("<div />").addClass("title").html(item.name));
+
+                $(".panel-content", "#DataPanel").append(itemUI);
 
             });
-
         });
     }
 
@@ -47,22 +56,32 @@
         refreshUI();
 
         $("#ButtonWantedPersons").on("click", function () {
-            alert("1");
+            $(this).addClass("active").parent().children().not(this).removeClass("active");
         });
 
         $("#ButtonMissingPersons").on("click", function () {
+            $(this).addClass("active").parent().children().not(this).removeClass("active");
+
             loadMissingPersons();
         });
 
         $("#ButtonStolenVehicles").on("click", function () {
-            alert("3");
+            $(this).addClass("active").parent().children().not(this).removeClass("active");
+
         });
 
         $("#ButtonStolenPlates").on("click", function () {
-            alert("4");
+            $(this).addClass("active").parent().children().not(this).removeClass("active");
+
         });
 
-    })
+    }).on("click", ".data-listing", function () {
+
+        var self = $(this);
+
+        $(".data-listing", $(".panel-content", "#DataPanel")).removeClass("active");
+        self.addClass("active");
+    });
 
     $(window).resize(function () {
         refreshUI();
