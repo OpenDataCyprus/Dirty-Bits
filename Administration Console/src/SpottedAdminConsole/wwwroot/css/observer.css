@@ -14,7 +14,8 @@
     background: #ddeefb;
 }
 
-#CategoryPanel button { border: none; background: transparent; width:64px; height:64px; margin:4px; }
+#CategoryPanel button { border: none; background: center center transparent no-repeat; width:72px; height:72px; margin:4px; }
+#CategoryPanel button.active { background-color:#cae8fb; border: 1px solid #b1dbf9; }
 #CategoryPanel #ButtonWantedPersons { background-image: url(../images/command-buttons/WantedPersons.png); }
 #CategoryPanel #ButtonWantedPersons.active { background-image: url(../images/command-buttons/WantedPersonsH.png); }
 #CategoryPanel #ButtonMissingPersons { background-image: url(../images/command-buttons/MissingPersons.png); }
@@ -56,6 +57,11 @@
     border-bottom: 1px solid #2b91e3;
     color: #ffffff;
 
+}
+
+.data-listing .content {
+    margin: 0 0 0 32px;
+    padding: 4px;
 }
 
 .data-listing .title {
