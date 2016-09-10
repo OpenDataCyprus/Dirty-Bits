@@ -20,7 +20,19 @@ public class Person extends BaseObservable implements Parcelable {
     private int timesSpotted;
     private Bitmap photograph;
     private String description;
-  //  private Drawable photographString;
+    private String photographNameString;
+
+    public static final Creator<Person> CREATOR = new Creator<Person>() {
+        @Override
+        public Person createFromParcel(Parcel in) {
+            return new Person(in);
+        }
+
+        @Override
+        public Person[] newArray(int size) {
+            return new Person[size];
+        }
+    };
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
@@ -80,15 +92,15 @@ public class Person extends BaseObservable implements Parcelable {
         return this.personId;
     }
 
-   // @Bindable
-  //  public Drawable getPhotographString() {
-      //  return photographString;
-  //  }
+    @Bindable
+    public String getPhotographString() {
+       return photographNameString;
+    }
 
-  //  public void setPhotographString(Drawable photographString) {
-  //      this.photographString = photographString;
-  //      notifyPropertyChanged(BR.photographString);
-  //  }
+    public void setPhotographString(String photographString) {
+        this.photographNameString = photographString;
+        notifyPropertyChanged(BR.photographString);
+    }
 
     @Override
     public int describeContents() {
@@ -113,18 +125,7 @@ public class Person extends BaseObservable implements Parcelable {
         this.timesSpotted = in.readInt();
         this.photograph = in.readParcelable(Image.class.getClassLoader());
         this.description = in.readString();
-      //  this.photographString = in.readParcelable(Drawable.class.getClassLoader());
+        this.photographNameString = in.readString();
     }
 
-    public static final Creator<Person> CREATOR = new Creator<Person>() {
-        @Override
-        public Person createFromParcel(Parcel source) {
-            return new Person(source);
-        }
-
-        @Override
-        public Person[] newArray(int size) {
-            return new Person[size];
-        }
-    };
 }

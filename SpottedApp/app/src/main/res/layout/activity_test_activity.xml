@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.dirtybits.spotted.Activities.test_activity">
+    tools:context=".Activities.MissingPersonInfo1">
 
     <LinearLayout
         android:orientation="vertical"
@@ -34,7 +34,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:background="@color/colorPrimary"
-            android:src="@drawable/irodotou" />
+           />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -102,7 +102,8 @@
         android:background="@null"
         android:src="@drawable/ic_map_black_30dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="showSightingsMap"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/imageButtonSpotted"
@@ -111,5 +112,6 @@
         android:background="@null"
         android:src="@drawable/ic_location_on_black_24px1"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="showReportMap"/>
 </RelativeLayout>

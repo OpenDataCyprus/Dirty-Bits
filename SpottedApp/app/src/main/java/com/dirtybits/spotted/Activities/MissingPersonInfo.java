@@ -1,8 +1,10 @@
 package com.dirtybits.spotted.Activities;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.dirtybits.spotted.Models.MissingPerson;
@@ -28,5 +30,11 @@ public class MissingPersonInfo extends AppCompatActivity {
         textViewdescription.setText(_missingPerson.getDescription());
         TextView textViewdescription1 = (TextView) findViewById(R.id.textViewDescription1);
         textViewdescription1.setText(_missingPerson.getDescription());
+    }
+
+    public void showSightingsMap(View view)
+    {
+        Intent intent = new Intent(this, SightingsMaps.class);
+        startActivity(intent);
     }
 }

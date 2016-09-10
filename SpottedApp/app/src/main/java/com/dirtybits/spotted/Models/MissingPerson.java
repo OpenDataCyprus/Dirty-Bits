@@ -12,22 +12,6 @@ public class MissingPerson extends Person implements Parcelable{
 
     private String missingDate;
 
-    public static final Creator<MissingPerson> CREATOR = new Creator<MissingPerson>() {
-        @Override
-        public MissingPerson createFromParcel(Parcel in) {
-            return new MissingPerson(in);
-        }
-
-        @Override
-        public MissingPerson[] newArray(int size) {
-            return new MissingPerson[size];
-        }
-    };
-
-
-    public MissingPerson(Parcel in) {
-        super(in);
-    }
 
     public void setMissingDate(String missingDate){
         this.missingDate = missingDate;
@@ -46,6 +30,25 @@ public class MissingPerson extends Person implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-    dest.writeString("");
+        super.writeToParcel(dest, flags);
+        dest.writeString(this.missingDate);
     }
+
+
+    public MissingPerson(Parcel in) {
+        super(in);
+        this.missingDate = in.readString();
+    }
+
+    public static final Creator<MissingPerson> CREATOR = new Creator<MissingPerson>() {
+        @Override
+        public MissingPerson createFromParcel(Parcel source) {
+            return new MissingPerson(source);
+        }
+
+        @Override
+        public MissingPerson[] newArray(int size) {
+            return new MissingPerson[size];
+        }
+    };
 }
