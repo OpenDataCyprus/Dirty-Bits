@@ -42,7 +42,7 @@
 
         <activity android:name=".Activities.MissingPersonInfo1"
             android:label="Missing person"
-            android:parentActivityName=".MainActivityWithoutDrawer"/>
+            android:parentActivityName=".Activities.MissingPersons"/>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

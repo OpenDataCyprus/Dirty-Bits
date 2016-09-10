@@ -34,25 +34,41 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
 
     public AdapterMissingPerson(Context context) {
         _context = context;
+        personsList = new ArrayList<>();
+
         MissingPerson missingPerson;
         missingPerson = new MissingPerson(Parcel.obtain());
-        missingPerson.setFullName("Eduard Bagdoyan");
-        missingPerson.setTimesSpotted(2);
+        missingPerson.setFullName("ΧΑΡΑΛΑΜΠΟΣ ΠΕΛΟΠΙΔΑ");
+        missingPerson.setTimesSpotted(13);
         missingPerson.setType(Type.MissingPerson);
-        missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
+        missingPerson.setDescription("Ο Χαράλαμπος ΠΕΛΟΠΙΔΑ από το Καντού, 55 χρόνων, λείπει από την κατοικία του από τις 29.1.02. " +
+                                     "Είναι ύψους 1.70 μ., παχουλός, με γκριζόμαυρα μαλλιά, φορεί γυαλιά μυωπίας και κουτσαίνει στο δεξί του πόδι. " +
+                                     "Φορούσε σακάκι παραλλαγής, φανέλα με γαλάζιες και άσπρες ρίγες και μαύρο παντελόνι.Ο Αστ. Στ. Επισκοπής εξετάζει.");
         Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
                 R.drawable.pelopidas);
         missingPerson.setPhotograph(icon);
-       missingPerson.setMissingDate("10/10/2014");
-        personsList = new ArrayList<>();
+        missingPerson.setMissingDate("2002-01-29");
         personsList.add(missingPerson);
+
         missingPerson = new MissingPerson(Parcel.obtain());
-        missingPerson.setFullName("ΜΑΡΙΑ ΚΑΚΟΓΙΑΝΝΗ");
-        missingPerson.setTimesSpotted(0);
+        missingPerson.setFullName("ΒΑΣΟΣ ΚΩΝΣΤΑΝΤΙΝΟΥ");
+        missingPerson.setTimesSpotted(8);
         missingPerson.setType(Type.MissingPerson);
-        missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
-        missingPerson.setMissingDate("10/12/2015");
-         icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.konstantinou);
+        missingPerson.setDescription("Ο Βάσος ΚΩΝΣΤΑΝΤΙΝΟΥ από την Αγγλία, 28 χρόνων, λείπει από την κατοικία εξαδέλφης του στη Λ/κα, από τις 7.7.02. " +
+                                     "Είναι ισχυρής σωματικής διάπλασης, ύψους 1.80μ., με μαύρα μαλλιά και καφέ μάτια.Το ΤΑΕ Λ/κας εξετάζει.");
+        missingPerson.setMissingDate("2002-07-07");
+        icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.konstantinou);
+        missingPerson.setPhotograph(icon);
+        personsList.add(missingPerson);
+
+        missingPerson = new MissingPerson(Parcel.obtain());
+        missingPerson.setFullName("AΝΝΑ ΜΙΛΤΙΑΔΟΥΣ");
+        missingPerson.setTimesSpotted(27);
+        missingPerson.setType(Type.MissingPerson);
+        missingPerson.setDescription("Η Άννα ΜΙΛΤΙΑΔΟΥΣ από τη Λεμεσό, 75 χρόνων, λείπει από την κατοικία της από τις 23/9/02. " +
+                                     "Περισσότερες πληροφορίες δεν υπάρχουν.Το ΤΑΕ Λεμεσού εξετάζει.");
+        missingPerson.setMissingDate("2002-09-23");
+        icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.miltiadous);
         missingPerson.setPhotograph(icon);
         personsList.add(missingPerson);
     }
