@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none"  android:id="@+id/routeDrawerGroup1">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/wanted_person"
+            android:title="Καταζητουμενοι" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/missingperson"
+            android:title="Ελλειποντά πρόσωπα" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/stolen_plates"
+            android:title="Κλεμμενα αυτοκινητα" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/stolen_plates"
+            android:title="Κλεμμένες πινακίδες" />
+    </group>
+
+    <group android:checkableBehavior="none"  android:id="@+id/routeDrawerGroup">
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Ρυθμίσεις" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/about"
+            android:title="Σχετικά" />
+    </group>
+</menu>
