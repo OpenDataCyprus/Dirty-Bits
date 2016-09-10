@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
 
-    <data>
-
-        <variable
-            name="missingPerson"
-            type="com.dirtybits.spotted.Models.Person" />
-    </data>
-
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +9,6 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.dirtybits.spotted.Activities.MissingPersonInfo">
-
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -33,7 +23,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
-                android:text="@{missingPerson.FullName}"
                 android:textColor="@color/abc_background_cache_hint_selector_material_light"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -78,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|left"
-                    android:text="@{Integer.toString(missingPerson.TimesSpotted)}"
+
                     android:textColor="@color/abc_background_cache_hint_selector_material_light" />
             </LinearLayout>
 
@@ -103,14 +92,18 @@
             android:src="@drawable/ic_map_black_30dp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="false"
             android:layout_below="@+id/linearLayout3"
             android:layout_marginTop="5dp"
-            android:text="@{missingPerson.Description}"
-            android:textStyle="bold" />
 
+            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textViewDescription1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
     </RelativeLayout>
-</layout>
