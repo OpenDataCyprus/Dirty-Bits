@@ -32,4 +32,10 @@ public class MissingPersonInfo1 extends AppCompatActivity {
         Intent intent = new Intent(this, SightingsMaps.class);
         startActivity(intent);
     }
+
+    public void showReportMap(View view)
+    {
+        Intent intent = new Intent(this, ReportMap.class);
+        startActivity(intent);
+    }
 }
