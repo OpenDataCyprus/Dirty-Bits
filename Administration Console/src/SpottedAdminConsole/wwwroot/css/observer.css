@@ -50,6 +50,8 @@
 .data-listing {
     border-bottom: 1px solid #e5e5e5;
     padding: 4px;
+    cursor: default;
+    min-height: 64px;
 }
 
 .data-listing.active {
@@ -59,15 +61,33 @@
 
 }
 
-.data-listing .content {
-    margin: 0 0 0 32px;
-    padding: 4px;
+.data-listing img {
+    border-radius: 32px;
+    height: 64px;
+    width: 64px;
+    float:left;
 }
 
 .data-listing .title {
     font-weight:bold;
 }
 
-.wanted-person {
-    
+.data-listing[data-custom-type=WantedPerson] .content, .data-listing[data-custom-type=MissingPerson] .content {
+    margin: 0 0 0 68px;
+    padding: 4px;
+    height:64px;
+    display:table-cell;
+    vertical-align:middle;
 }
+
+.data-listing[data-custom-type=WantedPerson] .title, .data-listing[data-custom-type=MissingPerson] .title {
+    text-overflow: ellipsis;
+}
+
+.data-listing[data-custom-type=StolenVehicle] .content, .data-listing[data-custom-type=StolenPlate] .content {
+    padding: 4px;
+}
+
+
+
+

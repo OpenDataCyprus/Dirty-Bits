@@ -23,7 +23,7 @@
         [Route("api/[controller]/ReportList/{id}")]
         public IEnumerable<StolenVehicleReport> ReportList(string id)
         {
-            return _context.StolenVehicleReport.Where(x => x.Id.ToUpper().Equals(id.ToUpper()));
+            return _context.StolenVehicleReport.Where(x => x.StolenCar.Id.ToUpper().Equals(id.ToUpper()));
         }
 
         [Route("api/[controller]/Search/{id}")]
