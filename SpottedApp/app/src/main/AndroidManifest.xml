@@ -40,7 +40,7 @@
             android:label="Missing cars"
             android:parentActivityName=".MainActivityWithoutDrawer" />
 
-        <activity android:name=".Activities.MissingPersonInfo"
+        <activity android:name=".Activities.MissingPersonInfo1"
             android:label="Missing person"
             android:parentActivityName=".MainActivityWithoutDrawer"/>
 
@@ -58,10 +58,12 @@
 
         <activity
             android:name=".Activities.ReportMap"
+            android:parentActivityName=".Activities.MissingPersonInfo1"
             android:label="@string/title_activity_report_map" />
+
         <activity
             android:name=".Activities.SightingsMaps"
-            android:parentActivityName=".Activities.MissingPersonInfo"
+            android:parentActivityName=".Activities.MissingPersonInfo1"
             android:label="@string/title_activity_sightings_maps"></activity>
     </application>
 </manifest>
