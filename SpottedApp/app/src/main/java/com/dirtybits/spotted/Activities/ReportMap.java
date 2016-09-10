@@ -3,6 +3,8 @@ package com.dirtybits.spotted.Activities;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Toast;
 
 import com.dirtybits.spotted.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,5 +31,10 @@ public class ReportMap extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+    }
+
+    public void ReportPerson(View view)
+    {
+        Toast.makeText(getApplicationContext(),"Reported",Toast.LENGTH_LONG);
     }
 }
