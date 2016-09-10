@@ -7,18 +7,13 @@ using System.Threading.Tasks;
 
 namespace SpottedAdminConsole.Controllers
 {
-    public class MissingPersonsController : Controller
+    public class StolenVehicles : Controller
     {
         private ApplicationDataContext _context;
 
-        public MissingPersonsController(ApplicationDataContext context)
+        public StolenVehicles(ApplicationDataContext context)
         {
             _context = context;
-        }
-
-        public IActionResult Index()
-        {
-            return View(_context.MissingPersons.ToList());
         }
 
         public IActionResult Create()
@@ -27,31 +22,31 @@ namespace SpottedAdminConsole.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<MissingPerson> List()
+        public IEnumerable<StolenCar> List()
         {
-            return _context.MissingPersons;
+            return _context.StolenCars;
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(MissingPerson missingPerson)
+        public IActionResult Create(StolenCar stolenCar)
         {
             if (ModelState.IsValid)
             {
-                missingPerson.Id = Guid.NewGuid().ToString();
-                _context.MissingPersons.Add(missingPerson);
+                stolenCar.Id = Guid.NewGuid().ToString();
+                _context.StolenCars.Add(stolenCar);
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(missingPerson);
+            return View(stolenCar);
         }
 
         [Route("api/[controller]/ReportList/{id}")]
-        public IEnumerable<MissingPersonReport> ReportList(string id)
+        public IEnumerable<StolenVehicleReport> ReportList(string id)
         {
-            return _context.MissingPersonReport.Where(x => x.Id.ToUpper().Equals(id.ToUpper()));
+            return _context.StolenVehicleReport.Where(x => x.Id.ToUpper().Equals(id.ToUpper()));
         }
     }
 }

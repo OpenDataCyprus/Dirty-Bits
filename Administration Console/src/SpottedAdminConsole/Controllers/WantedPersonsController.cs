@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace SpottedAdminConsole.Controllers
 {
-    public class MissingPersonsController : Controller
+    public class WantedPersonsController : Controller
     {
         private ApplicationDataContext _context;
 
-        public MissingPersonsController(ApplicationDataContext context)
+        public WantedPersonsController(ApplicationDataContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            return View(_context.MissingPersons.ToList());
+            return View(_context.WantedPersons.ToList());
         }
 
         public IActionResult Create()
@@ -27,31 +27,31 @@ namespace SpottedAdminConsole.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<MissingPerson> List()
+        public IEnumerable<WantedPerson> List()
         {
-            return _context.MissingPersons;
+            return _context.WantedPersons;
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(MissingPerson missingPerson)
+        public IActionResult Create(WantedPerson wantedPerson)
         {
             if (ModelState.IsValid)
             {
-                missingPerson.Id = Guid.NewGuid().ToString();
-                _context.MissingPersons.Add(missingPerson);
+                wantedPerson.Id = Guid.NewGuid().ToString();
+                _context.WantedPersons.Add(wantedPerson);
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(missingPerson);
+            return View(wantedPerson);
         }
 
         [Route("api/[controller]/ReportList/{id}")]
-        public IEnumerable<MissingPersonReport> ReportList(string id)
+        public IEnumerable<WantedPersonReport> ReportList(string id)
         {
-            return _context.MissingPersonReport.Where(x => x.Id.ToUpper().Equals(id.ToUpper()));
+            return _context.WantedPersonReport.Where(x => x.Id.ToUpper().Equals(id.ToUpper()));
         }
     }
 }
