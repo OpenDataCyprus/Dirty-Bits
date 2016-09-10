@@ -36,6 +36,7 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
         missingPerson.setFullName("Eduard Bagdoyan");
         missingPerson.setTimesSpotted(2);
         missingPerson.setType(Type.MissingPerson);
+        missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
        // missingPerson.setPhotographString(context.getResources().getDrawable(R.drawable.no_photo_available));
      //   missingPerson.setMissingDate("10/10/2014");
         personsList = new ArrayList<>();
@@ -44,6 +45,7 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
         missingPerson.setFullName("ΜΑΡΙΑ ΚΑΚΟΓΙΑΝΝΗ");
         missingPerson.setTimesSpotted(0);
         missingPerson.setType(Type.MissingPerson);
+        missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
      //   missingPerson.setMissingDate("10/12/2015");
       //  missingPerson.setPhotographString(context.getResources().getDrawable(R.drawable.no_photo_available));
         personsList.add(missingPerson);

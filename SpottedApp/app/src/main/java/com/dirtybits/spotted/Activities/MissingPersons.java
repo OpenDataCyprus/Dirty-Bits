@@ -55,7 +55,7 @@ public class MissingPersons extends AppCompatActivity {
     public void ViewInfo(int position)
     {
         Person person = _adapterMissingPerson.getSelectedPerson(position);
-        Intent personIntent = new Intent(MissingPersons.this, MissingPersonInfo.class);
+        Intent personIntent = new Intent(MissingPersons.this, test_activity.class);
         personIntent.putExtra("person", person);
         setResult(RESULT_OK, personIntent);
         startActivity(personIntent);
