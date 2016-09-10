@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.dirtybits.spotted.Activities.test_activity">
+    tools:context=".Activities.MissingPersonInfo1">
 
     <LinearLayout
         android:orientation="vertical"

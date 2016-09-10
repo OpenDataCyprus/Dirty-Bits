@@ -15,7 +15,6 @@ import com.dirtybits.spotted.Models.Person;
 import com.dirtybits.spotted.Models.Type;
 import com.dirtybits.spotted.R;
 import com.dirtybits.spotted.ViewHolders.ViewHolderMissingPerson;
-import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,28 +24,28 @@ import java.util.Locale;
 
 public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissingPerson> {
 
-    List<Person> personsList;
+    List<MissingPerson> personsList;
     Context _context;
     private static SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
 
     public AdapterMissingPerson(Context context) {
         _context = context;
-        Person missingPerson;
-        missingPerson = new Person(Parcel.obtain());
+        MissingPerson missingPerson;
+        missingPerson = new MissingPerson(Parcel.obtain());
         missingPerson.setFullName("Eduard Bagdoyan");
         missingPerson.setTimesSpotted(2);
         missingPerson.setType(Type.MissingPerson);
         missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
        // missingPerson.setPhotographString(context.getResources().getDrawable(R.drawable.no_photo_available));
-     //   missingPerson.setMissingDate("10/10/2014");
+       missingPerson.setMissingDate("10/10/2014");
         personsList = new ArrayList<>();
         personsList.add(missingPerson);
-        missingPerson = new Person(Parcel.obtain());
+        missingPerson = new MissingPerson(Parcel.obtain());
         missingPerson.setFullName("ΜΑΡΙΑ ΚΑΚΟΓΙΑΝΝΗ");
         missingPerson.setTimesSpotted(0);
         missingPerson.setType(Type.MissingPerson);
         missingPerson.setDescription("tersrewrewrewrewreewrewrewrewr");
-     //   missingPerson.setMissingDate("10/12/2015");
+        missingPerson.setMissingDate("10/12/2015");
       //  missingPerson.setPhotographString(context.getResources().getDrawable(R.drawable.no_photo_available));
         personsList.add(missingPerson);
     }
@@ -63,7 +62,7 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
     public void onBindViewHolder(ViewHolderMissingPerson holder, int position) {
         if (personsList.size() > 0) {
             holder.textviewName.setText(personsList.get(position).getFullName());
-         //   holder.textviewDate.setText(personsList.get(position).getMissingDate());
+            holder.textviewDate.setText(personsList.get(position).getMissingDate());
             holder.textviewSpottedTime.setText(Integer.toString(personsList.get(position).getTimesSpotted()));
           //  holder.imageButtonPicture.setImageDrawable(personsList.get(position).getPhotographString());
             holder.reportButton.setTag(position);
@@ -72,7 +71,7 @@ public class AdapterMissingPerson extends RecyclerView.Adapter<ViewHolderMissing
         }
     }
 
-    public Person getSelectedPerson(int position) {
+    public MissingPerson getSelectedPerson(int position) {
         return personsList.get(position);
     }
 

@@ -35,7 +35,7 @@
         <activity android:name=".Activities.MissingPersonInfo"
             android:label="Missing person"
             android:parentActivityName=".MainActivityWithoutDrawer"/>
-        <activity android:name=".Activities.test_activity"
+        <activity android:name=".Activities.MissingPersonInfo1"
             android:label="Missing person"
             android:parentActivityName=".MainActivityWithoutDrawer"></activity>
     </application>
