@@ -50,7 +50,7 @@
         [Route("api/[controller]/ReportList/{id}")]
         public IEnumerable<WantedPersonReport> ReportList(string id)
         {
-            return _context.WantedPersonReport.Where(x => x.Id.ToUpper().Equals(id.ToUpper()));
+            return _context.WantedPersonReport.Where(x => x.WantedPerson.Id.ToUpper().Equals(id.ToUpper()));
         }
 
         [Route("api/[controller]/Search/{id}")]

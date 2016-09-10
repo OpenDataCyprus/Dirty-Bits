@@ -19,17 +19,16 @@
             android:id="@+id/textViewName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/linearLayout2"
-            android:layout_alignParentStart="true"
             android:layout_marginLeft="2dp"
-            android:layout_toStartOf="@+id/imageButtonPicture"
             android:maxLines="2"
             android:singleLine="false"
             android:text="MARIEL RANDJANY BAMUNU MUDIYANSECAGE"
             android:textColor="@color/abc_search_url_text_pressed"
             android:textIsSelectable="true"
             android:textSize="15dp"
-            android:textStyle="bold">
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_alignEnd="@+id/linearLayout2">
 
         </me.grantland.widget.AutofitTextView>
 
@@ -52,18 +51,18 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textViewName"
-            android:layout_below="@+id/linearLayout2"
             android:text="report"
-            android:onClick="ReportPerson"/>
+            android:onClick="ReportPerson"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/textViewName" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
             android:orientation="horizontal"
+            android:layout_above="@+id/buttonReport"
+            android:layout_alignParentStart="true"
             android:layout_toStartOf="@+id/imageButtonPicture">
 
             <ImageView
@@ -82,7 +81,7 @@
                 android:layout_marginTop="10dp"
                 android:text="15/10/2001"
                 android:textColor="@color/abc_search_url_text_pressed"
-                android:textSize="20dp"
+                android:textSize="12dp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -101,7 +100,7 @@
                 android:autoText="true"
                 android:text="2"
                 android:textColor="@color/abc_search_url_text_pressed"
-                android:textSize="20dp"
+                android:textSize="12dp"
                 android:textStyle="bold" />
         </LinearLayout>
 

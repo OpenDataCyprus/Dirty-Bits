@@ -5,18 +5,19 @@
 
 (function ($) {
 
-    var map;
-    var markers = [];
-
     // Adds a marker to the map and push to the array.
-    function addMarker(location) {
+    function addMarker(mapContainer, report) {
+
+        var map = mapContainer.data("map");
+        var markers = mapContainer.data("markers");
+
         var marker = new google.maps.Marker({
-            position: location,
+            position: { lat: report.latitude, lng: report.longitude },
             map: map,
             animation: google.maps.Animation.DROP
         });
 
-        var contentString = '<div id="content">' +
+        /*var contentString = '<div id="content">' +
             '<div id="siteNotice">' +
             '</div>' +
             '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
@@ -36,10 +37,10 @@
             '(last visited June 22, 2009).</p>' +
             '</div>' +
             '</div>' +
-            '<img src="chihuahua.jpg" alt="Mountain View" style="width:304px;height:228px;">';
+            '<img src="chihuahua.jpg" alt="Mountain View" style="width:304px;height:228px;">'; */
 
         var infowindow = new google.maps.InfoWindow({
-            content: contentString,
+            content: report.description,
             maxWidth: 200
         });
 
@@ -49,50 +50,63 @@
 
         markers.push(marker);
 
-
+        mapContainer.data("markers", markers);
     }
 
-    // Sets the map on all markers in the array.
-    function setMapOnAll(map) {
-        for (var i = 0; i < markers.length; i++) {
-            markers[i].setMap(map);
+    function setLocation(mapContainer, report)
+    {
+        var map = mapContainer.data("map");
+
+        map.setCenter(new google.maps.LatLng(report.latitude, report.longitude), map.getZoom());
+    }
+
+    $.fn.map = function (params, option, value) {
+
+        if (typeof (params) === "string")
+        {
+            var self = $(this);
+            
+            if (params === "addMarker")
+            {
+                addMarker(self, option);
+
+                setLocation(self, option);
+            }
+            else if (params === "addMarkers") {
+                $.each(option, function(index, marker) {
+                    addMarker(self, marker);
+                });
+
+                if (option.length > 0)
+                    setLocation(self, option[0]);
+            }
+            else if (params === "clearMarkers")
+            {
+                var markers = self.data("markers");
+                $.each(markers, function(index, marker) {
+                    marker.setMap(null);
+                });
+
+                self.data("markers", []);
+            }
+
+            return self;
         }
-    }
 
-    // Removes the markers from the map, but keeps them in the array.
-    function clearMarkers() {
-        setMapOnAll(null);
-    }
-
-    // Shows any markers currently in the array.
-    function showMarkers() {
-        setMapOnAll(map);
-    }
-
-    // Deletes all markers in the array by removing references to them.
-    function deleteMarkers() {
-        clearMarkers();
-        markers = [];
-    }
-
-    $.fn.map = function (params, options, values) {
 
         return this.each(function () {
-
             var self = $(this);
 
-            var haightAshbury = { lat: 37.769, lng: -122.446 };
             var cyprus = { lat: 35.1264, lng: 33.4299 };
 
             map = new google.maps.Map(self[0], {
-                zoom: 2,
+                zoom: 10,
                 center: cyprus,
                 mapTypeId: 'terrain'
             });
 
-            // Adds a marker at the center of the map.
-            addMarker(haightAshbury);
-            addMarker(cyprus);
+            self.data("map", map);
+            self.data("markers", []);
         });
     };
 

@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.dirtybits.spotted.Adapters.AdapterMissingPerson;
 import com.dirtybits.spotted.Listeners.RecyclerItemClickListener;
+import com.dirtybits.spotted.Models.MissingPerson;
 import com.dirtybits.spotted.Models.Person;
 import com.dirtybits.spotted.R;
 
@@ -53,7 +54,7 @@ public class MissingPersons extends AppCompatActivity {
 
     public void ViewInfo(int position)
     {
-        Person person = _adapterMissingPerson.getSelectedPerson(position);
+        MissingPerson person = _adapterMissingPerson.getSelectedPerson(position);
         Intent personIntent = new Intent(MissingPersons.this, MissingPersonInfo1.class);
         personIntent.putExtra("person", person);
         setResult(RESULT_OK, personIntent);
