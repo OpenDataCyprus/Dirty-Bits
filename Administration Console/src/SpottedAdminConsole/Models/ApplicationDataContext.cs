@@ -15,6 +15,15 @@
         public DbSet<StolenCar> StolenCars { get; set; }
 
         public DbSet<StolenPlates> StolenPlates { get; set; }
+
+        public DbSet<MissingPersonReport> MissingPersonReport { get; set; }
+
+        public DbSet<WantedPersonReport> WantedPersonReport { get; set; }
+
+        public DbSet<StolenVehicleReport> StolenVehicleReport { get; set; }
+
+        public DbSet<StolenPlateReport> StolenPlateReport { get; set; }
+
     }
 
 }

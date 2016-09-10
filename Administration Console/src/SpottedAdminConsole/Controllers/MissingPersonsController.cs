@@ -26,6 +26,12 @@ namespace SpottedAdminConsole.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IEnumerable<MissingPerson> List()
+        {
+            return _context.MissingPersons;
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(MissingPerson missingPerson)
