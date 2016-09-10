@@ -48,5 +48,11 @@ namespace SpottedAdminConsole.Controllers
         {
             return _context.StolenVehicleReport.Where(x => x.Id.ToUpper().Equals(id.ToUpper()));
         }
+
+        [Route("api/[controller]/Search/{id}")]
+        public IEnumerable<StolenCar> Search(string id)
+        {
+            return _context.StolenCars.Where(x => x.Id.ToUpper().Contains(id.ToUpper()) || x.PlateNumber.ToString().ToUpper().Contains(id.ToUpper()) || x.Brand.ToUpper().Contains(Id.IdToUpper()) || x.Color.ToUpper().Contains(x.Id.ToUpper()) || x.ChassisNumber.ToUpper().Contains(x.Id.ToUpper()) || x.EngineNumber.ToUpper().Contains(x.Id) || x.MinDate.ToString().ToUpper().Contains(x.Id.ToUpper()) || x.MaxDate.ToString().ToUpper().Contains(x.Id.ToUpper()));
+        }
     }
 }
