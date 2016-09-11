@@ -48,11 +48,16 @@
             </android.support.design.widget.TextInputLayout>
 
             <ImageButton
+                android:layout_width="303dp"
+                android:layout_height="228dp"
                 android:id="@+id/imageButtonPhoto"
-                android:layout_width="313dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="0.62" />
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginTop="40dp"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_camera_alt_black_48px"
+                android:onClick="TakePhoto"
+                />
         </LinearLayout>
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 </android.support.design.widget.CoordinatorLayout>

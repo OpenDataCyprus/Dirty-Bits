@@ -34,7 +34,6 @@ public class MissingPerson extends Person implements Parcelable{
         dest.writeString(this.missingDate);
     }
 
-
     public MissingPerson(Parcel in) {
         super(in);
         this.missingDate = in.readString();

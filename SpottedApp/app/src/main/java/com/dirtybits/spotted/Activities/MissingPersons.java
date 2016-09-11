@@ -31,29 +31,26 @@ public class MissingPersons extends AppCompatActivity {
         _adapterMissingPerson = new AdapterMissingPerson(getApplicationContext());
         _recyclerView.setAdapter(_adapterMissingPerson);
         _recyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(getApplication(), _recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
-                        ViewInfo(position);
+                new RecyclerItemClickListener(getApplication(), _recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        ViewInfo(view, position);
                     }
 
-                    @Override public void onLongItemClick(View view, int position) {
-                        // do whatever
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        ReportPerson(view);
                     }
                 })
         );
     }
 
     public void ReportPerson(View view) {
-        int position = (int) view.getTag();
-        Person person = _adapterMissingPerson.getSelectedPerson(position);
-        Intent personIntent = new Intent(MissingPersons.this, MissingPersonInfo.class);
-        personIntent.putExtra("person", person);
-        setResult(RESULT_OK, personIntent);
-        finish();
+        Intent intent = new Intent(this, ReportMap.class);
+        startActivity(intent);
     }
 
-    public void ViewInfo(int position)
-    {
+    public void ViewInfo(View view, int position) {
         MissingPerson person = _adapterMissingPerson.getSelectedPerson(position);
         Intent personIntent = new Intent(MissingPersons.this, MissingPersonInfo1.class);
         personIntent.putExtra("person", person);
