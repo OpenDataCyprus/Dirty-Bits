@@ -47,7 +47,7 @@
         jar="/Users/Captain/Dirty-Bits/SpottedApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="30a3b6b4f6aabfa730e989592f74760cfa8d3b23">
+        sha1="c70a4060e47f88f5f923473c4f6682977352967a">
         <dex dex="/Users/Captain/Dirty-Bits/SpottedApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_56bd918b83d9afbbf06f9b7bf8012141bf2a9342/classes.dex" />
     </item>
     <item
@@ -89,7 +89,7 @@
         jar="/Users/Captain/Dirty-Bits/SpottedApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="3c7dbbf584120bcc77e0e6addbdd510cd0ef39fa">
+        sha1="c9ca74688ff163c9b6888b1e94e152afb71ea540">
         <dex dex="/Users/Captain/Dirty-Bits/SpottedApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8b3275ac8bb78267094e4bfd47bbf44e157b0a63/classes.dex" />
     </item>
     <item

@@ -20,7 +20,6 @@ public class Person extends BaseObservable implements Parcelable {
     private int timesSpotted;
     private Bitmap photograph;
     private String description;
-    private String photographNameString;
 
     public static final Creator<Person> CREATOR = new Creator<Person>() {
         @Override
@@ -92,16 +91,6 @@ public class Person extends BaseObservable implements Parcelable {
         return this.personId;
     }
 
-    @Bindable
-    public String getPhotographString() {
-       return photographNameString;
-    }
-
-    public void setPhotographString(String photographString) {
-        this.photographNameString = photographString;
-        notifyPropertyChanged(BR.photographString);
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -125,7 +114,6 @@ public class Person extends BaseObservable implements Parcelable {
         this.timesSpotted = in.readInt();
         this.photograph = in.readParcelable(Image.class.getClassLoader());
         this.description = in.readString();
-        this.photographNameString = in.readString();
     }
 
 }
