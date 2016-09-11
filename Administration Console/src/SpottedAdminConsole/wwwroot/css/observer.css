@@ -30,6 +30,15 @@
     border-left: 1px solid #bad0df;
 }
 
+.panel-header #TextBoxSearch {
+    border: none;
+    height: 58px;
+    width: 100%;
+    background: #fafafa;
+    margin: 4px;
+    font-size: 22px;
+}
+
 #CategoryPanel .panel-header, #DataPanel .panel-header, #MapPanel .panel-header {
     border-bottom: 1px solid #90bcde;
 }
