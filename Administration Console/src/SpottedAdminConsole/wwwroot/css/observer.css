@@ -81,6 +81,10 @@
     font-weight:bold;
 }
 
+.data-listing .description {
+    font-size:12px;
+}
+
 .data-listing[data-custom-type=WantedPerson] .content, .data-listing[data-custom-type=MissingPerson] .content {
     margin: 0 0 0 68px;
     padding: 4px;
@@ -95,6 +99,9 @@
 
 .data-listing[data-custom-type=StolenVehicle] .content, .data-listing[data-custom-type=StolenPlate] .content {
     padding: 4px;
+    height:64px;
+    display:table-cell;
+    vertical-align:middle;
 }
 
 

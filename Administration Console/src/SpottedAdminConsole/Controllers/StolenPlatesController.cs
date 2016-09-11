@@ -26,10 +26,10 @@
             return _context.StolenPlateReport.Where(x => x.StolenPlate.Id.ToUpper().Equals(id.ToUpper()));
         }
 
-        [Route("api/[controller]/Search/{id}")]
-        public IEnumerable<StolenPlates> Search(string id)
+        [Route("api/[controller]/Search/{text}")]
+        public IEnumerable<StolenPlates> Search(string text)
         {
-            return _context.StolenPlates.Where(x => x.Id.ToUpper().Contains(id.ToUpper()) || x.PlateNumber.ToString().ToUpper().Contains(id.ToUpper()) || x.Brand.ToUpper().Contains(x.Id.ToUpper()) || x.Color.ToUpper().Contains(x.Id.ToUpper()) || x.ChassisNumber.ToUpper().Contains(x.Id.ToUpper()) || x.EngineNumber.ToUpper().Contains(x.Id.ToUpper()) || x.County.ToUpper().Contains(x.Id.ToUpper()) || x.DateStolen.ToString().ToUpper().Contains(x.Id.ToUpper()));
+            return _context.StolenPlates.Where(x => (x.Brand != null && x.Brand.ToUpperInvariant().Contains(text.ToUpperInvariant())) || x.PlateNumber.ToUpperInvariant().Contains(text.ToUpperInvariant()));
         }
     }
 }
