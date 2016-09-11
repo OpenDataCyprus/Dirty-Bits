@@ -1,10 +1,12 @@
 package com.dirtybits.spotted.Activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -28,12 +30,14 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 public class ReportMap extends AppCompatActivity implements OnMapReadyCallback,
         GoogleMap.OnMapLongClickListener,
         SlidingUpPanelLayout.PanelSlideListener,
-        View.OnCreateContextMenuListener{
+        View.OnCreateContextMenuListener,
+        GoogleMap.OnMyLocationButtonClickListener {
 
     private GoogleMap mMap;
     private SlidingUpPanelLayout slidingUpPanelLayout;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageButton button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,17 +68,13 @@ public class ReportMap extends AppCompatActivity implements OnMapReadyCallback,
     public boolean onContextItemSelected(MenuItem item) {
         if (item.getTitle() == "Capture") {
             TakePicture();
-        }
-        else if (item.getTitle() == "Upload") {
-            Toast.makeText(this, "Action 2 invoked", Toast.LENGTH_SHORT).show();
-        }
-        else if (item.getTitle() == "Remove") {
-            Toast.makeText(this, "Action 3 invoked", Toast.LENGTH_SHORT).show();
-        }
-        else if (item.getTitle() == "View") {
-            Toast.makeText(this, "Action 3 invoked", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else if (item.getTitle() == "Upload") {
+            Toast.makeText(this, "Upload", Toast.LENGTH_SHORT).show();
+        } else if (item.getTitle() == "Remove") {
+            Toast.makeText(this, "Removed", Toast.LENGTH_SHORT).show();
+        } else if (item.getTitle() == "View") {
+            Toast.makeText(this, "View", Toast.LENGTH_SHORT).show();
+        } else {
             return false;
         }
         return true;
@@ -95,15 +95,29 @@ public class ReportMap extends AppCompatActivity implements OnMapReadyCallback,
             button.setImageBitmap(imageBitmap);
         }
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setOnMapLongClickListener(this);
+        mMap.getUiSettings().setCompassEnabled(true);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.getUiSettings().setZoomGesturesEnabled(true);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        } else {
+            Toast.makeText(ReportMap.this, "You have to accept to enjoy all app's services!", Toast.LENGTH_LONG).show();
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                mMap.setMyLocationEnabled(true);
+            }
+        }
     }
 
     public void ReportPerson(View view) {
 
-        Toast.makeText(getApplicationContext(), "Reported", Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "Reported", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -116,9 +130,12 @@ public class ReportMap extends AppCompatActivity implements OnMapReadyCallback,
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
         if (slidingUpPanelLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED)
             slidingUpPanelLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+        else
+            super.onBackPressed();
+
     }
 
     @Override
@@ -169,5 +186,14 @@ public class ReportMap extends AppCompatActivity implements OnMapReadyCallback,
     @Override
     public void onPanelLayout(View view, SlidingUpPanelLayout.PanelState panelState) {
 
+    }
+
+    public void TakePhoto(View view) {
+        TakePicture();
+    }
+
+    @Override
+    public boolean onMyLocationButtonClick() {
+        return false;
     }
 }
