@@ -53,10 +53,10 @@
             return _context.WantedPersonReport.Where(x => x.WantedPerson.Id.ToUpper().Equals(id.ToUpper()));
         }
 
-        [Route("api/[controller]/Search/{id}")]
-        public IEnumerable<WantedPerson> Search(string id)
+        [Route("api/[controller]/Search/{text}")]
+        public IEnumerable<WantedPerson> Search(string text)
         {
-            return _context.WantedPersons.Where(x => x.Id.ToUpper().Contains(id.ToUpper()) || x.Date.ToString().ToUpper().Contains(id.ToUpper()) || x.Description.ToUpper().Contains(x.Id.ToUpper()) || x.Name.ToUpper().Contains(x.Id.ToUpper()));
+            return _context.WantedPersons.Where(x => (x.Description != null && x.Description.ToUpperInvariant().Contains(text.ToUpperInvariant())) || x.Name.ToUpperInvariant().Contains(text.ToUpperInvariant()));
         }
     }
 }

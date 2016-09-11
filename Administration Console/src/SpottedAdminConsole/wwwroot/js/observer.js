@@ -7,6 +7,7 @@
     var windowHeight = 0;
     var windowWidth = 0;
 
+    var currentActiveType = null;
 
     function refreshUI()
     {
@@ -28,11 +29,16 @@
         $(".panel-content", "#DataPanel").children().remove();
     }
 
-    function loadMissingPersons()
+    function loadMissingPersons(searchText)
     {
         clearUI();
 
-        $.get("/MissingPersons/List", function (response) {
+        var request = "/MissingPersons/List";
+
+        if (typeof (searchText) === "string" && $.trim(searchText) !== "")
+            request = "api/MissingPersons/Search/" + searchText;
+
+        $.get(request, function (response) {
             $.each(response, function (index, item) {
 
                 var itemUI = $("<div />").attr({
@@ -57,10 +63,15 @@
         });
     }
 
-    function loadWantedPersons() {
+    function loadWantedPersons(searchText) {
         clearUI();
 
-        $.get("/WantedPersons/List", function (response) {
+        var request = "/WantedPersons/List";
+
+        if (typeof (searchText) === "string" && $.trim(searchText) !== "")
+            request = "api/WantedPersons/Search/" + searchText;
+
+        $.get(request, function (response) {
             $.each(response, function (index, item) {
 
                 var itemUI = $("<div />").attr({
@@ -85,11 +96,16 @@
         });
     }
 
-    function loadStolenVehicles()
+    function loadStolenVehicles(searchText)
     {
         clearUI();
 
-        $.get("/StolenVehicles/List", function (response) {
+        var request = "/StolenVehicles/List";
+
+        if (typeof (searchText) === "string" && $.trim(searchText) !== "")
+            request = "api/StolenVehicles/Search/" + searchText;
+
+        $.get(request, function (response) {
             $.each(response, function (index, item) {
 
                 var itemUI = $("<div />").attr({
@@ -101,6 +117,8 @@
 
                 content.append($("<div />").addClass("title").html(item.plateNumber));
 
+                content.append($("<div />").addClass("description").html(item.brand + " - " + item.color));
+
                 $(".panel-content", "#DataPanel").append(itemUI);
 
             });
@@ -109,11 +127,16 @@
         });
     }
 
-    function loadStolenPlates()
+    function loadStolenPlates(searchText)
     {
         clearUI();
 
-        $.get("/StolenPlates/List", function (response) {
+        var request = "/StolenPlates/List";
+
+        if (typeof (searchText) === "string" && $.trim(searchText) !== "")
+            request = "api/StolenPlates/Search/" + searchText;
+
+        $.get(request, function (response) {
             $.each(response, function (index, item) {
 
                 var itemUI = $("<div />").attr({
@@ -124,6 +147,8 @@
                 var content = $("<div />").addClass("content").appendTo(itemUI);
 
                 content.append($("<div />").addClass("title").html(item.plateNumber));
+
+                content.append($("<div />").addClass("description").html(item.brand + " - " + item.color));
 
                 $(".panel-content", "#DataPanel").append(itemUI);
 
@@ -164,15 +189,50 @@
             loadStolenPlates();
         });
 
+        $("#TextBoxSearch").on("keydown", function (e) {
+            if (event.which != 13 || currentActiveType == null)
+                return;
+
+            e.preventDefault();
+            e.stopImmediatePropagation()
+
+            switch (currentActiveType) {
+                case "MissingPerson":
+                    {
+                        loadMissingPersons($(this).val());
+
+                        break;
+                    }
+                case "WantedPerson":
+                    {
+                        loadWantedPersons($(this).val());
+
+                        break;
+                    }
+                case "StolenVehicle":
+                    {
+                        loadStolenVehicles($(this).val());
+
+                        break;
+                    }
+                case "StolenPlate":
+                    {
+                        loadStolenPlates($(this).val());
+
+                        break;
+                    }
+            }
+        });
+
     }).on("click", ".data-listing", function () {
         var self = $(this);
 
         $(".data-listing", $(".panel-content", "#DataPanel")).removeClass("active");
 
         var id = self.attr("data-custom-id");
-        var type = self.attr("data-custom-type");
+        currentActiveType = self.attr("data-custom-type");
 
-        switch(type)
+        switch (currentActiveType)
         {
             case "MissingPerson":
                 {
@@ -206,6 +266,7 @@
         $(".data-listing.active img.picture-missing", $(".panel-content", "#DataPanel")).attr("src", "/images/data/noImageWhite.png");
     });
 
+    
     $(window).resize(function () {
         refreshUI();
     });
