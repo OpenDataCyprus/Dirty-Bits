@@ -1,7 +1,61 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    Layout = null;
+    ViewData["Title"] = "Spotted";
 }
 
-<h2>Index</h2>
-
-<p>Hello from our View Template!</p>
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link type="text/css" rel="stylesheet" href="~/css/home.css" />
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/stickerjs/sticker.min.js"></script>
+    <script type="text/javascript" src="~/js/home.js"></script>
+</head>
+<body>
+    <img style="position: absolute; top:0; left:0; z-index:99999;width:128px;margin:16px;" src="~/images/LogoText.png" />
+    <div class="button-container">
+        <a href="/Observer">
+            <div class="application-button" id="ButtonObserver">
+                <img src="~/images/logo.png" />
+            </div>
+            <div class="title">Spotted</div>
+        </a>
+        <a href="/MissingPersons">
+            <div class="application-button" id="ButtonMissingPersons">
+                <img src="~/images/home-buttons/MissingPersonsWhite.png" />
+            </div>
+            <div class="title">Missing Persons</div>
+        </a>
+        <a href="/WantedPersons">
+            <div class="application-button" id="ButtonWantedPersons">
+                <img src="~/images/home-buttons/WantedPersonsWhite.png" />
+            </div>
+            <div class="title">Wanted Persons</div>
+        </a>
+        <a href="/StolenVehicles">
+            <div class="application-button" id="ButtonStolenVehicles">
+                <img src="~/images/home-buttons/StolenVehiclesWhite.png" />
+            </div>
+            <div class="title">Stolen Vehicles</div>
+        </a>
+        <a href="/StolenPlates">
+            <div class="application-button" id="ButtonStolenPlates">
+                <img src="~/images/home-buttons/StolenPlatesWhite.png" />
+            </div>
+            <div class="title">Stolen Plates</div>
+        </a>
+        <a href="#">
+            <div class="application-button" id="ButtonDownload">
+                <img src="~/images/home-buttons/download.png" />
+            </div>
+            <div class="title">Download</div>
+        </a>
+    </div>
+</body>
+</html>

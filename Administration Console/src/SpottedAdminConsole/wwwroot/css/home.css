@@ -1,0 +1,52 @@
+﻿body {
+    margin:0;
+    padding:0;
+    background: url(../images/Background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: sans-serif;
+
+}
+
+.button-container
+{
+    display: table-cell;
+    vertical-align:middle;
+    text-align:center;
+}
+
+.button-container a
+{
+    display:inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.button-container .title {
+    color: #ffffff;
+}
+
+.application-button {
+    display:inline-block;
+    border-radius:80px;
+    padding:32px;
+    margin:16px;
+}
+
+.application-button img {
+    width: 128px;
+    height: 128px;
+}
+
+#ButtonObserver { background: #ffffff; }
+#ButtonWantedPersons { background: #0e518c; }
+#ButtonMissingPersons { background: #b19a2c; }
+#ButtonStolenVehicles { background:#004c28; }
+#ButtonStolenPlates { background: #ad392d; }
+#ButtonDownload { background: #424242; }
+
+
+
