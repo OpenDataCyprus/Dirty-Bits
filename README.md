@@ -6,7 +6,7 @@ Spotted combines 4 data sets available at [National Open Data of Cyprus](http://
 - Stolen Vehicles
 - Stolen License Plates
 
-Allows users to report directly to police by giving location, description and pictures cases that involve persons or vehicles that are part of the above categories.
+Allows users to report directly to police by giving location, description and pictures possible sightings that involve persons or vehicles that are part of the above categories.
 
 ## Team
 - [Antonio Kadid](https://cy.linkedin.com/in/antoniokadid)
